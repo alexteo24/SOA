@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+
+    <changeSet id="1" author="postgres">
+        <sql>
+            CREATE TABLE app_user (
+                                      id BIGSERIAL NOT NULL,
+                                      username VARCHAR(255) NOT NULL,
+                                      password VARCHAR(255) NOT NULL,
+                                      name VARCHAR(255) NOT NULL,
+                                      role VARCHAR(10) NOT NULL,
+                                      CONSTRAINT pk_app_user PRIMARY KEY (id)
+            );
+        </sql>
+        <rollback>
+            DROP TABLE app_user;
+        </rollback>
+    </changeSet>
+
+    <changeSet id="2" author="postgres">
+        <sql>
+            INSERT INTO app_user (username, password, name, role)
+            VALUES ('admin', '$2a$10$PKhRASZ8TpT7zRtARwza/ug7brVYgWApuhx9GKhAdyl2A848VhZUW', 'Mr. Admin', 'ADMIN');
+            INSERT INTO app_user (username, password, name, role)
+            VALUES ('user', '$2a$10$eRfgFLHJoT7r9oGVcqBJxu0Yos7dq/zxIcPYSdaQFVIy0boKxX7Na', 'Mr. User', 'USER');
+        </sql>
+        <rollback>
+            DELETE FROM app_user WHERE username='admin' OR username='user';
+        </rollback>
+    </changeSet>
+</databaseChangeLog>

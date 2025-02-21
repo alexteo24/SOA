@@ -1,0 +1,123 @@
+.profile-container {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 20px;
+}
+
+.profile-header {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.profile-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.profile-header h1 {
+    color: var(--primary);
+    margin-bottom: 10px;
+}
+
+.total-spent {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--secondary);
+}
+
+.ticket-history {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+}
+
+.ticket-history h2 {
+    color: var(--primary);
+    margin-bottom: 20px;
+}
+
+.ticket-list {
+    display: grid;
+    gap: 20px;
+}
+
+.ticket-card {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.ticket-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.ticket-info {
+    flex: 1;
+}
+
+.ticket-info h3 {
+    color: var(--primary);
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.ticket-details {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.ticket-price {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--secondary);
+    margin-bottom: 10px;
+}
+
+.purchase-date {
+    font-size: 0.9rem;
+    color: #6c757d;
+}
+
+.no-tickets {
+    text-align: center;
+    padding: 40px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    color: #6c757d;
+}
+
+.loading {
+    text-align: center;
+    font-size: 1.2rem;
+    color: var(--primary);
+    margin-top: 50px;
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+

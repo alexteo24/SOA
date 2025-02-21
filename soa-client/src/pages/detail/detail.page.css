@@ -1,0 +1,90 @@
+.detail-container {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px;
+}
+
+.event-detail-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.event-detail-card:hover {
+    transform: translateY(-5px);
+}
+
+.event-detail-card h1 {
+    color: var(--primary);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.event-info {
+    margin-bottom: 30px;
+}
+
+.event-info p {
+    margin-bottom: 10px;
+    color: var(--text);
+}
+
+.event-price {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--secondary);
+}
+
+.ticket-info {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.ticket-info h2 {
+    color: var(--primary);
+    margin-bottom: 15px;
+}
+
+.ticket-count {
+    font-size: 1.1rem;
+    color: var(--text);
+}
+
+.ticket-count span {
+    font-weight: bold;
+    color: var(--secondary);
+}
+
+.error-message {
+    color: var(--error);
+    text-align: center;
+    padding: 20px;
+    background-color: #fff3cd;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+.loading {
+    text-align: center;
+    font-size: 1.2rem;
+    color: var(--primary);
+    margin-top: 50px;
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+

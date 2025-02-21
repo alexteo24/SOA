@@ -1,0 +1,13 @@
+{
+  "lumoImports": [
+    "typography",
+    "color",
+    "spacing",
+    "badge",
+    "utility",
+    "input-field",
+    "button",
+    "message-input"
+  ],
+  "version": 3
+}

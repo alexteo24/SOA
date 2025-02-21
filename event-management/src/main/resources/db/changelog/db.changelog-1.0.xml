@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+
+    <changeSet id="1" author="postgres">
+        <sql>
+            CREATE TABLE event
+            (
+                id          BIGSERIAL    NOT NULL,
+                organiser   VARCHAR(255) NOT NULL,
+                performer   VARCHAR(255) NOT NULL,
+                description TEXT         NOT NULL,
+                category    VARCHAR(255),
+                price       DECIMAL(10, 2),
+                CONSTRAINT pk_product PRIMARY KEY (id)
+            );
+        </sql>
+        <rollback>
+            DROP TABLE product;
+        </rollback>
+    </changeSet>
+
+    <changeSet id="2" author="postgres">
+        <sql>
+            CREATE TABLE ticket
+            (
+                id            BIGSERIAL NOT NULL,
+                event_id      BIGINT    NOT NULL,
+                user_id       BIGINT    NOT NULL,
+                purchase_date TIMESTAMP,
+                CONSTRAINT pk_ticket PRIMARY KEY (id),
+                CONSTRAINT fk_ticket FOREIGN KEY (event_id) REFERENCES event (id) ON DELETE CASCADE ON UPDATE CASCADE
+            );
+        </sql>
+        <rollback>
+            DROP TABLE product_order;
+        </rollback>
+    </changeSet>
+
+    <changeSet id="3" author="postgres">
+        <sql>
+            INSERT INTO event (organiser, performer, description, category, price)
+            VALUES ('EventCorp', 'John Doe Band', 'A night of live jazz music.', 'Music', 50.00),
+                   ('SportsArena', 'City Tigers vs. Wild Eagles', 'Exciting football match between top teams.',
+                    'Sports', 75.00),
+                   ('TechExpo', 'Elon Talks AI', 'A deep dive into the future of artificial intelligence.',
+                    'Conference', 120.00),
+                   ('TheatreHouse', 'Hamlet Play', 'Classic Shakespearean drama performed live.', 'Theatre', 40.00),
+                   ('FoodFest', 'Gourmet Chefs', 'Taste delicious cuisines from around the world.', 'Festival', 25.00);
+        </sql>
+        <rollback>
+            TRUNCATE TABLE product;
+        </rollback>
+    </changeSet>
+</databaseChangeLog>
